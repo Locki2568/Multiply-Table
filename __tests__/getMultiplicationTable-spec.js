@@ -7,5 +7,9 @@ it ('should generate a combination table from 2 to 4', ()=>{
 });
 
 it ('should return null when start range <= 0', ()=>{
-    expect(getMultiplicationTable(0,2)).toBe( null);
+    expect(getMultiplicationTable(0,5)).toBe( null);
+});
+
+it ('should return null when end range >1000', ()=>{
+	expect(getMultiplicationTable(10,1001)).toBe(null);
 });

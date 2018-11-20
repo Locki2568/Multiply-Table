@@ -39,6 +39,8 @@ function getMultiplicationResult(currentIdx, endIdx){
 function checkInputNumberVaild(currentIdx, rangeEnd){
     if (currentIdx <= 0){
         return false;
+    }else if (rangeEnd > 1000){
+        return false;
     }
     return true;
 }
