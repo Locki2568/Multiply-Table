@@ -13,3 +13,7 @@ it ('should return null when start range <= 0', ()=>{
 it ('should return null when end range >1000', ()=>{
 	expect(getMultiplicationTable(10,1001)).toBe(null);
 });
+
+it ('should return null when start range > end range', ()=>{
+	expect(getMultiplicationTable(100,50)).toBe(null);
+});

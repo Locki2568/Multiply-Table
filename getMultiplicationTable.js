@@ -41,6 +41,8 @@ function checkInputNumberVaild(currentIdx, rangeEnd){
         return false;
     }else if (rangeEnd > 1000){
         return false;
+    }else if (currentIdx > rangeEnd){
+        return false;
     }
     return true;
 }
