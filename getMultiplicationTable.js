@@ -3,6 +3,10 @@ function getMultiplicationTable(startIdx, endIdx){
 
     var curCombinationList = '';
 
+    if(!checkInputNumberVaild(startIdx, endIdx)){
+        return null;
+    }
+
     for(var i=startIdx; i<=endIdx; i++){
         curCombinationList += getCurrentCombination(startIdx, i);  
     }
@@ -30,6 +34,13 @@ function getCurrentCombination(currentIdx, endIdx){
 
 function getMultiplicationResult(currentIdx, endIdx){
     return (currentIdx * endIdx);
+}
+
+function checkInputNumberVaild(currentIdx, rangeEnd){
+    if (currentIdx <= 0){
+        return false;
+    }
+    return true;
 }
 
 module.exports = getMultiplicationTable;
