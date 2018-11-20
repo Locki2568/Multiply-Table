@@ -1,29 +1,31 @@
 function getMultiplicationTable(startIdx, endIdx){
     var resultTable;
 
-    var curCombinationList = [];
+    var curCombinationList = '';
 
     for(var i=startIdx; i<=endIdx; i++){
-        curCombinationList += getCurrentCombination(i, endIdx);
-        
+        curCombinationList += getCurrentCombination(startIdx, i);  
     }
 
     console.log("debug here "+curCombinationList);
-    return curCombinationList;
+    return curCombinationList.substr(0, curCombinationList.length -1);
 }
 
-function getCurrentCombination(startIdx, endIdx){
-    var curCombinationList = [];
-    var currentIdx = startIdx;
-    
-    for (var i=startIdx; i<=endIdx; i++){
-        var multiplicationResult = getMultiplicationResult(currentIdx, i);
-        var tempResult = '';
-        tempResult = currentIdx+'*'+i+'='+multiplicationResult+"  ";
-        curCombinationList.push(tempResult);
+function getCurrentCombination(currentIdx, endIdx){
+    var tempResult = '';
+    for (var i=currentIdx; i<=endIdx; i++){
+        var multiplicationResult = getMultiplicationResult(i, endIdx);
+        
+        if(i === endIdx){
+            if(endIdx ===4){
+                console.log("debug here");
+            }
+            tempResult += i+'*'+endIdx+'='+multiplicationResult+'\n';
+        }else{
+            tempResult += i+'*'+endIdx+'='+multiplicationResult+'  ';
+        }
     }
-    
-    return curCombinationList;
+    return tempResult;
 }
 
 function getMultiplicationResult(currentIdx, endIdx){
