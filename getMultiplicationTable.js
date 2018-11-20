@@ -4,19 +4,27 @@ function getMultiplicationTable(startIdx, endIdx){
     var curCombinationList;
 
     for(var i=startIdx; i<=endIdx; i++){
-        curCombinationList += curCombinationList(i, endIdx);
+        curCombinationList += getCurrentCombination(i, endIdx);
+        
     }
-    
+    return curCombinationList;
 }
 
-function getCurrentCombination(currentIdx, endIdx){
+function getCurrentCombination(startIdx, endIdx){
     var curCombinationList = [];
+    var currentIdx = startIdx;
+    
     for (var i=startIdx; i<=endIdx; i++){
-        curCombinationList += currentIdx+'*'+endIdx;
+        var multiplicationResult = getMultiplicationResult(currentIdx, startIdx);
+        var tempResult = '';
+        tempResult = currentIdx+'*'+startIdx+'='+multiplicationResult+"  ";
+        curCombinationList.push(tempResult);
     }
-
+    console.log("debug here "+curCombinationList);
 }
 
-function 
+function getMultiplicationResult(currentIdx, endIdx){
+    return (currentIdx * endIdx);
+}
 
 module.exports = getMultiplicationTable;
