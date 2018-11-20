@@ -1,12 +1,14 @@
 function getMultiplicationTable(startIdx, endIdx){
     var resultTable;
 
-    var curCombinationList;
+    var curCombinationList = [];
 
     for(var i=startIdx; i<=endIdx; i++){
         curCombinationList += getCurrentCombination(i, endIdx);
         
     }
+
+    console.log("debug here "+curCombinationList);
     return curCombinationList;
 }
 
@@ -15,12 +17,13 @@ function getCurrentCombination(startIdx, endIdx){
     var currentIdx = startIdx;
     
     for (var i=startIdx; i<=endIdx; i++){
-        var multiplicationResult = getMultiplicationResult(currentIdx, startIdx);
+        var multiplicationResult = getMultiplicationResult(currentIdx, i);
         var tempResult = '';
-        tempResult = currentIdx+'*'+startIdx+'='+multiplicationResult+"  ";
+        tempResult = currentIdx+'*'+i+'='+multiplicationResult+"  ";
         curCombinationList.push(tempResult);
     }
-    console.log("debug here "+curCombinationList);
+    
+    return curCombinationList;
 }
 
 function getMultiplicationResult(currentIdx, endIdx){
